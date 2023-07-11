@@ -35,7 +35,7 @@ jobs:
       - name: Install a package
         run: npm install ${{ env.TARGET_PACKAGE }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Execute package
         run: npx .
