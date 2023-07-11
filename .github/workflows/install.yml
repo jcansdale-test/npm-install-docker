@@ -11,7 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: docker build . --build-arg GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+      - run: docker build . --build-arg GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -t myapp
+      
+      - run: docker run myapp
 
   checkout-and-install:
     runs-on: ubuntu-latest
