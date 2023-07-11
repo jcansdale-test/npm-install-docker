@@ -21,6 +21,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Execute package
         run: node .
