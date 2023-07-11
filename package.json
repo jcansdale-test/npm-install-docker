@@ -1,0 +1,23 @@
+{
+  "name": "@github-packages-examples/npm-install",
+  "version": "1.0.0",
+  "description": "Install a npm package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github-packages-examples/npm-install.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/github-packages-examples/npm-install/issues"
+  },
+  "homepage": "https://github.com/github-packages-examples/npm-install#readme",
+  "dependencies": {
+    "@github-packages-examples/npm-publish": "^1.0.15"
+  }
+}

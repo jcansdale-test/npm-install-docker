@@ -1,0 +1,40 @@
+on: [push, repository_dispatch, workflow_dispatch]
+
+env:
+  TARGET_PACKAGE: "@${{ github.repository_owner }}/npm-publish"
+
+jobs:
+  checkout-and-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Execute package
+        run: node .
+
+  create-and-install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          scope: ${{ github.repository_owner }}
+          registry-url: https://npm.pkg.github.com
+
+      - name: Create a package called @${{ github.repository }}
+        run: npm init --scope ${{ github.repository_owner }} -y
+
+      - name: Add index.js to package
+        run: echo 'require("${{ env.TARGET_PACKAGE }}").sayHello()' > index.js
+
+      - name: Install a package
+        run: npm install ${{ env.TARGET_PACKAGE }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_PACKAGES_TOKEN }}
+
+      - name: Execute package
+        run: npx .
