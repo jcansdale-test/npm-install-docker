@@ -2,6 +2,7 @@ on: [push, repository_dispatch, workflow_dispatch]
 
 env:
   TARGET_PACKAGE: "@${{ github.repository_owner }}/npm-publish"
+  OWNER: github-packages-examples
 
 jobs:
   checkout-and-install:
@@ -22,7 +23,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v1
         with:
-          scope: ${{ github.repository_owner }}
+          scope: ${{ env.OWNER }}
           registry-url: https://npm.pkg.github.com
 
       - name: Create a package called @${{ github.repository }}
