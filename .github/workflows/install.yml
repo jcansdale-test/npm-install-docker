@@ -5,6 +5,16 @@ env:
   OWNER: github-packages-examples
 
 jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: docker build
+
+      - run: docker run .
+
   checkout-and-install:
     runs-on: ubuntu-latest
 
