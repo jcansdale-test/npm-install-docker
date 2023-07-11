@@ -1,7 +1,6 @@
 FROM node:18-alpine
 
 ARG GITHUB_TOKEN
-ENV GITHUB_TOKEN=$GITHUB_TOKEN
 
 COPY . ./
-RUN npm install
+RUN GITHUB_TOKEN=$GITHUB_TOKEN; npm install
