@@ -1,7 +1,7 @@
 on: [push, repository_dispatch, workflow_dispatch]
 
 env:
-  TARGET_PACKAGE: "@${{ github.repository_owner }}/npm-publish"
+  TARGET_PACKAGE: "@github-packages-examples/npm-publish"
   OWNER: github-packages-examples
 
 jobs:
